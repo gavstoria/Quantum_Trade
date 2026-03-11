@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-quantum-green: #00ff88;
+  --color-quantum-dark: #050505;
+  --color-quantum-surface: #0a0a0a;
+}
+
+@layer base {
+  body {
+    @apply bg-quantum-dark text-white font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  }
+
+  .bg-radial-gradient {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  .animate-ticker-slow {
+    animation: ticker 60s linear infinite;
+  }
+
+  .animate-ticker-reverse-slow {
+    animation: ticker-reverse 60s linear infinite;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes ticker-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+}
